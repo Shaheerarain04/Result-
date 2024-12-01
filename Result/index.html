@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1">
+            <h1>Check your grade</h1>
+            <!-- <h1>get your</h1> -->
+            <div class="sec1">
+                <label for="totalbiology">
+                    total marks of biology <br> <input type="number" id="totalbiology">
+                </label>
+                <br>
+                <br>
+                <label for="obtainedbiology">
+                    obtained marks of biology <br> <input type="number" id="obtainedbiology">
+                </label>
+            </div>
+            <br>
+            <div class="sec2">
+                <label for="totalphysic">
+                    total marks of physics <br> <input type="number" id="totalphysic">
+                </label>
+                <br>
+                <br>
+                <label for="obtainedphysic">
+                    obtained marks of physics <br> <input type="number" id="obtainedphysic">
+                </label>
+            </div>
+           
+            <br>
+            <div class="sec3">
+                <label for="totalchemistry">
+                    total marks of chemistry <br> <input type="number" id="totalchemistry">
+                </label>
+                <br>
+                <br>
+                <label for="obtainedchemistry">
+                    obtained marks of chemistry <br> <input type="number" id="obtainedchemistry">
+                </label>
+            </div>
+            <br>
+            <br>
+            <div class="sec4">
+                <label for="totalenglish">
+                    total marks of english <br> <input type="number" id="totalenglish">
+                </label>
+                <br>
+                <br>
+                <label for="obtainedenglish">
+                    obtained marks of english <br> <input type="number" id="obtainedenglish">
+                </label>
+            </div>
+            <br>
+
+            <button onclick="CalculateResult()" class="self">check result</button>
+            <div id="result"></div>
+        </div>
+    </div>
+    <div id="result"></div>
+    <script>
+        function CalculateResult() {
+            let totalbiology = Number(document.getElementById("totalbiology").value);
+            let obtainedbiology = Number(document.getElementById("obtainedbiology").value);
+            let totalphysic = Number(document.getElementById("totalphysic").value);
+            let obtainedphysic = Number(document.getElementById("obtainedphysic").value);
+            let totalchemistry = Number(document.getElementById("totalchemistry").value);
+            let obtainedchemistry = Number(document.getElementById("obtainedchemistry").value);
+            let totalenglish = Number(document.getElementById("totalenglish").value);
+            let obtainedenglish = Number(document.getElementById("obtainedenglish").value);
+
+            let totalmarks = totalbiology + totalphysic + totalchemistry + totalenglish;
+            let obtainedmarks = obtainedbiology + obtainedphysic + obtainedchemistry + obtainedenglish;
+
+            let percentage = (obtainedmarks / totalmarks) * 100;
+
+
+            // document.getElementById("result").innerText 
+            let grade = "";
+
+            if (percentage < 35) {
+                grade = "Fail";
+            }
+            else if (percentage >= 35 && percentage < 40) {
+                grade = "E";
+            }
+            else if (percentage >= 40 && percentage < 50) {
+                grade = "D";
+            }
+            else if (percentage >= 50 && percentage < 60) {
+                grade = "c";
+            }
+            else if (percentage >= 60 && percentage < 70) {
+                grade = "B";
+            }
+            else if (percentage >= 70 && percentage < 80) {
+                grade = "A";
+            }
+            else if (percentage >= 80 && percentage <= 100) {
+                grade = "A+";
+            }
+
+            let result = document.getElementById("result").innerHTML = `Your Percentage : ${percentage.toFixed(2)}% <br> Your grade: ${grade}`
+
+            
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html
